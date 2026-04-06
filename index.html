@@ -9,18 +9,16 @@
 body {
   margin: 0;
   font-family: 'Georgia', serif;
-  background: #ffffff;
+  background: linear-gradient(135deg, #fdfcfb, #e8e4dc);
   color: #5c4a2d;
+  text-align: center;
 }
 
 header {
-  text-align: center;
   padding: 40px 20px;
 }
 
-header img {
-  width: 130px;
-}
+header img { width: 130px; }
 
 h1 { color: #8b6f47; }
 
@@ -31,8 +29,7 @@ nav {
   padding: 15px;
   position: sticky;
   top: 0;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  background: rgba(255,255,255,0.9);
 }
 
 nav button {
@@ -61,19 +58,13 @@ section {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
-
-.galeria img {
+img {
   width: 100%;
+  max-width: 400px;
   border-radius: 15px;
-  cursor: pointer;
+  margin: 15px 0;
 }
 
-/* WhatsApp */
 .whatsapp {
   position: fixed;
   bottom: 20px;
@@ -95,6 +86,7 @@ section {
   <img src="https://raw.githubusercontent.com/vidabevaart-hub/images/main/WhatsApp%20Image%202026-04-06%20at%2012.55.39%20PM.jpeg">
   <h1>Vida Beva Arte</h1>
   <p><i>Arte con intención</i></p>
+  <p>Convertimos tus recuerdos en retratos pintados a mano</p>
 </header>
 
 <nav>
@@ -107,24 +99,66 @@ section {
 
 <section id="inicio" style="display:block">
   <h2>Bienvenidos</h2>
-  <p>Convertimos tus recuerdos más especiales en retratos pintados a mano</p>
+  <p>Arte único, hecho a mano con detalle y emoción.</p>
 </section>
 
 <section id="galeria">
   <h2>Galería</h2>
-  <div class="galeria" id="mascotas"></div>
+
+  <h3>Retratos de mascotas</h3>
+  <h4>30x30cm</h4>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/30.jpg?raw=true">
+
+  <h4>40x30cm</h4>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/40.jpg?raw=true">
+
+  <h4>40x50cm</h4>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/50.jpg?raw=true">
+
+  <h4>50x50cm</h4>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/50.jpg?raw=true">
+
+  <h4>40x70cm</h4>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/4070.jpg?raw=true">
+
+  <h4>60x60cm</h4>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/6060.jpg?raw=true">
+
+  <h3>Retratos de personas</h3>
+
+  <h4>30x30cm</h4>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/3030.jpg?raw=true">
+
+  <h4>40x50cm</h4>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/4050.jpg?raw=true">
+
+  <h4>50x50cm</h4>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/5050.jpg?raw=true">
+
+  <h4>40x70cm</h4>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/4070r.jpg?raw=true">
+
+  <h4>60x60cm</h4>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/6060r.jpg?raw=true">
+
+  <h4>70x100cm</h4>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/70100r.jpg?raw=true">
+
+  <h3>Proceso de pintura</h3>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/pintura.jpg?raw=true">
+
 </section>
 
 <section id="precios">
   <h2>Precios</h2>
-  <img src="https://github.com/vidabevaart-hub/images/blob/main/precios.jpg?raw=true" style="width:100%; max-width:400px; border-radius:10px;">
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/precios.jpg?raw=true">
   <p>Mascotas desde ₡28,000</p>
   <p>Personas desde ₡30,000</p>
 </section>
 
 <section id="nosotros">
   <h2>Nosotros</h2>
-  <img src="https://github.com/vidabevaart-hub/images/blob/main/nosotros.jpg?raw=true" style="width:100%; max-width:400px; border-radius:10px;">
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/nosotros.jpg?raw=true">
   <p>Somos Benjamin Rivas y Viviana Valverde, y desde hace mas de 8 años nos dedicamos a transformar fotografías en retratos pintados a mano.
   Cada cuadro realizado es con el objetivo de capturar la esencia y la emoción de ese momento especial.</p>
 </section>
@@ -143,7 +177,7 @@ section {
   Internacionales (próximamente).</p>
 </section>
 
-<a class="whatsapp" href="https://wa.me/50670918104" target="_blank">💬</a>
+<a class="whatsapp" href="https://wa.me/506XXXXXXXX" target="_blank">💬</a>
 
 <script>
 function show(id) {
@@ -151,19 +185,6 @@ function show(id) {
   document.getElementById(id).style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-let mascotas = ["mascota1.jpg","mascota2.jpg"];
-
-function cargar() {
-  let contenedor = document.getElementById("mascotas");
-  mascotas.forEach(nombre => {
-    let img = document.createElement("img");
-    img.src = "images/" + nombre;
-    contenedor.appendChild(img);
-  });
-}
-
-cargar();
 </script>
 
 </body>
