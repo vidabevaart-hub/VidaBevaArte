@@ -9,7 +9,7 @@
 body {
   margin: 0;
   font-family: 'Georgia', serif;
-  background: radial-gradient(circle at top, #f7e6e6, #e3f0ee, #ffffff);
+  background: linear-gradient(180deg,#f6e7e7,#e8f2f1,#ffffff);
   color: #5c4a2d;
   text-align: center;
 }
@@ -25,57 +25,77 @@ nav {
 nav button {
   padding:10px 18px; border:none; border-radius:25px;
   background:linear-gradient(135deg,#8b6f47,#c8a97e);
-  color:white; cursor:pointer; transition:.3s;
+  color:white; cursor:pointer;
 }
-nav button:hover { transform:scale(1.05); }
 
 section { display:none; padding:40px 20px; }
 
 .card {
   background:white; border-radius:20px; padding:20px;
-  margin:20px auto; max-width:600px;
+  margin:20px auto; max-width:900px;
   box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
 img { max-width:100%; border-radius:15px; }
 
-/* INICIO */
-.inicio-wrap { position:relative; height:420px; max-width:900px; margin:auto; }
-.inicio-wrap img { position:absolute; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.2);} 
+/* INICIO GRID BONITO */
+.inicio-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+  max-width:900px;
+  margin:auto;
+}
+
+.inicio-grid img {
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.inicio-grid img:hover {
+  transform:scale(1.05);
+}
+
+/* LIGHTBOX */
+#lightbox {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.8);
+  justify-content:center;
+  align-items:center;
+}
+
+#lightbox img {
+  max-width:90%;
+  max-height:90%;
+}
 
 /* GALERIA */
 .galeria-menu button {
   margin:5px; padding:8px 14px;
   border-radius:20px; border:none;
-  background:#f1ece4; cursor:pointer;
+  background:#f1ece4;
 }
-.galeria-menu button:hover { background:#8b6f47; color:white; }
 
 .subgaleria { display:none; margin-top:20px; }
 
-/* TESTIMONIOS */
 .testimonios {
   display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
   gap:10px; margin-top:20px;
 }
-.testimonios img { box-shadow:0 5px 15px rgba(0,0,0,0.15);} 
 
-/* FORM */
-select, input {
-  padding:8px; margin:5px; border-radius:8px; border:1px solid #ccc;
-}
+select,input{padding:8px;margin:5px;border-radius:8px;border:1px solid #ccc;}
 
-.whatsapp {
-  position:fixed; bottom:20px; right:20px;
-  background:#25D366; color:white; padding:15px; border-radius:50%;
-}
+.whatsapp {position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%;}
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/logo111.jfif">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/logo111.jfif">
 </header>
 
 <nav>
@@ -87,12 +107,20 @@ select, input {
 </nav>
 
 <section id="inicio" style="display:block">
-<div class="inicio-wrap">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/inicio.jpeg?raw=true" style="top:0; left:5%; width:180px;">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/inicio1.jpeg?raw=true" style="top:40px; right:5%; width:180px;">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/inicio2.jpeg?raw=true" style="bottom:0; left:20%; width:200px;">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/inicio3.jpeg?raw=true" style="bottom:40px; right:20%; width:180px;">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/inicio6.jfif" style="top:120px; left:40%; width:200px;">
+<div class="inicio-grid">
+<img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio.jpeg?raw=true">
+<img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio1.jpeg?raw=true">
+<img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio2.jpeg?raw=true">
+<img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio3.jpeg?raw=true">
+<img onclick="openImg(this.src)" src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/inicio6.jfif">
+</div>
+
+<div class="card">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/instaqr.jfif" style="max-width:150px;">
+<p>
+<a href="https://www.instagram.com/vidabeva.arte" style="color:#5c4a2d;text-decoration:none;">Instagram</a><br>
+<a href="https://www.facebook.com/share/1GLTWmyKdc/" style="color:#5c4a2d;text-decoration:none;">Facebook</a>
+</p>
 </div>
 </section>
 
@@ -101,17 +129,29 @@ select, input {
 <div class="card">
 <div class="galeria-menu">
 <button onclick="mostrarGaleria('m30')">30x30</button>
+<button onclick="mostrarGaleria('m40')">40x30</button>
 <button onclick="mostrarGaleria('m50')">40x50</button>
+<button onclick="mostrarGaleria('m70')">40x70</button>
 <button onclick="mostrarGaleria('p70')">70x100</button>
 <button onclick="mostrarGaleria('proceso')">Proceso</button>
+<button onclick="mostrarGaleria('test')">Testimonios</button>
 </div>
 
 <div id="m30" class="subgaleria">
 <img src="https://github.com/vidabevaart-hub/images/blob/main/30.jpg?raw=true">
 </div>
 
+<div id="m40" class="subgaleria">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/40.jpg?raw=true">
+</div>
+
 <div id="m50" class="subgaleria">
 <img src="https://github.com/vidabevaart-hub/images/blob/main/50.jpg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/5050.jpg?raw=true">
+</div>
+
+<div id="m70" class="subgaleria">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/4070.jpg?raw=true">
 </div>
 
 <div id="p70" class="subgaleria">
@@ -123,8 +163,7 @@ select, input {
 <img src="https://github.com/vidabevaart-hub/images/blob/main/proceso1.jpg?raw=true">
 </div>
 
-<h3>Testimonios</h3>
-<div class="testimonios">
+<div id="test" class="subgaleria testimonios">
 <img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test1.jfif">
 <img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test2.jfif">
 <img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test3.jfif">
@@ -138,26 +177,21 @@ select, input {
 <section id="precios">
 <div class="card">
 <h2>Cotizar</h2>
-<form>
 <p>Alto:</p>
-<select>
+<select id="alto">
 <option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option>
 </select>
 
 <p>Ancho:</p>
-<select>
+<select id="ancho">
 <option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option>
 </select>
 
-<p>Detalles:</p>
-<input type="text" placeholder="Describe tu idea">
-
 <br><br>
-<button onclick="enviarWhats()" type="button">Cotizar por WhatsApp</button>
-</form>
+<button onclick="enviarWhats()">Cotizar por WhatsApp</button>
 
-<p style="font-size:12px; color:#777;">
-Cada mascota adicional en un mismo cuadro tiene un costo extra de ₡10,000 sobre el precio base.
+<p style="font-size:12px;color:#777;">
+Cada mascota adicional tiene un costo extra de ₡10,000 sobre el precio base.
 </p>
 </div>
 </section>
@@ -165,7 +199,7 @@ Cada mascota adicional en un mismo cuadro tiene un costo extra de ₡10,000 sobr
 <section id="nosotros">
 <div class="card">
 <img src="https://github.com/vidabevaart-hub/images/blob/main/nosotros.jpg?raw=true">
-<p>Somos Benjamin Rivas y Viviana Valverde, y desde hace mas de 8 años nos dedicamos a transformar fotografías en retratos pintados a mano. Cada cuadro busca capturar la emoción de un momento único.</p>
+<p>Somos Benjamin Rivas y Viviana Valverde, con más de 8 años creando arte lleno de emoción.</p>
 </div>
 </section>
 
@@ -174,31 +208,40 @@ Cada mascota adicional en un mismo cuadro tiene un costo extra de ₡10,000 sobr
 <h2>Preguntas frecuentes</h2>
 <p><b>¿Qué tipo de foto debo enviar?</b><br>
 Fotos claras y bien iluminadas funcionan mejor sin embargo hemos trabajado con fotos antiguas por lo que siempre recomendamos consultar para no descartar.</p>
-
 <p><b>¿Cuánto tarda el retrato?</b><br>
-Normalmente entre 2 y 3 semanas, de igual manera puede consultar si tenemos espacios antes en la agenda.</p>
-
+Normalmente entre 2 y 3 semanas.</p>
 <p><b>¿Hacen envíos?</b><br>
-Sí, realizamos envíos a todo el país. Internacionales (próximamente).</p>
+Sí, a todo el país.</p>
 </div>
 </section>
+
+<div id="lightbox" onclick="this.style.display='none'">
+<img id="lightimg">
+</div>
 
 <a class="whatsapp" href="https://wa.me/50670918104">💬</a>
 
 <script>
 function show(id){
-  document.querySelectorAll('section').forEach(s=>s.style.display='none');
-  document.getElementById(id).style.display='block';
+ document.querySelectorAll('section').forEach(s=>s.style.display='none');
+ document.getElementById(id).style.display='block';
 }
 
 function mostrarGaleria(id){
-  document.querySelectorAll('.subgaleria').forEach(g=>g.style.display='none');
-  document.getElementById(id).style.display='block';
+ document.querySelectorAll('.subgaleria').forEach(g=>g.style.display='none');
+ document.getElementById(id).style.display='block';
 }
 
 function enviarWhats(){
-  let url="https://wa.me/50670918104?text=Hola quiero cotizar un retrato";
-  window.open(url);
+ let alto=document.getElementById('alto').value;
+ let ancho=document.getElementById('ancho').value;
+ let url=`https://wa.me/50670918104?text=Hola quiero cotizar un retrato de ${alto}x${ancho}`;
+ window.open(url);
+}
+
+function openImg(src){
+ document.getElementById('lightbox').style.display='flex';
+ document.getElementById('lightimg').src=src;
 }
 </script>
 
