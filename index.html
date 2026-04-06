@@ -118,6 +118,27 @@ img {
   text-decoration: none;
 }
 
+
+/* ANIMACIONES IMÁGENES INICIO */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(var(--rot)); }
+  50% { transform: translateY(-10px) rotate(var(--rot)); }
+  100% { transform: translateY(0px) rotate(var(--rot)); }
+}
+
+.inicio-img {
+  position:absolute;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.inicio-img:hover {
+  transform: scale(1.08) rotate(var(--rot));
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+
 </style>
 </head>
 
@@ -144,15 +165,24 @@ img {
     <p>No es solo un retrato… es un recuerdo que vuelve a vivir.</p>
   </div>
 
-  <!-- GALERÍA DE INICIO -->
-  <div class="galeria">
-    <div><img src="https://github.com/vidabevaart-hub/images/blob/main/inicio.jpeg?raw=true"></div>
-    <div><img src="https://github.com/vidabevaart-hub/images/blob/main/inicio1.jpeg?raw=true"></div>
-    <div><img src="https://github.com/vidabevaart-hub/images/blob/main/inicio2.jpeg?raw=true"></div>
-    <div><img src="https://github.com/vidabevaart-hub/images/blob/main/inicio3.jpeg?raw=true"></div>
-  </div>
+  <!-- IMÁGENES ARTÍSTICAS DISPERSAS -->
+<div style="position: relative; max-width: 900px; margin: 40px auto; height: 500px;">
 
-  <!-- REDES -->
+  <img class="inicio-img" src="https://github.com/vidabevaart-hub/images/blob/main/inicio.jpeg?raw=true" 
+  style="top:0; left:10%; width:220px; --rot:-5deg;">
+
+  <img class="inicio-img" src="https://github.com/vidabevaart-hub/images/blob/main/inicio1.jpeg?raw=true" 
+  style="top:50px; right:5%; width:200px; --rot:6deg;">
+
+  <img class="inicio-img" src="https://github.com/vidabevaart-hub/images/blob/main/inicio2.jpeg?raw=true" 
+  style="bottom:0; left:20%; width:240px; --rot:3deg;">
+
+  <img class="inicio-img" src="https://github.com/vidabevaart-hub/images/blob/main/inicio3.jpeg?raw=true" 
+  style="bottom:30px; right:15%; width:220px; --rot:-4deg;">
+
+</div>
+
+<!-- REDES -->
   <div class="card">
     <h3>Síguenos</h3>
     <img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/instaqr.jfif" style="max-width:200px; margin-bottom:15px;">
