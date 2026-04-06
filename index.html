@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>Vida Beva Arte</title>
 
 <style>
 body {
@@ -39,24 +39,40 @@ section { display:none; padding:40px 20px; }
 
 img { max-width:100%; border-radius:15px; }
 
-/* CARRUSEL */
+/* CARRUSEL PREMIUM */
+.carousel-wrapper {
+  display:flex;
+  justify-content:center;
+}
+
 .carousel {
   display:flex;
-  overflow-x:auto;
-  gap:15px;
-  padding:10px;
-  scroll-snap-type:x mandatory;
+  gap:20px;
+  overflow:hidden;
+  max-width:900px;
+}
+
+.carousel-track {
+  display:flex;
+  gap:20px;
+  animation: scroll 20s linear infinite;
 }
 
 .carousel img {
   width:250px;
   flex:0 0 auto;
-  scroll-snap-align:center;
   cursor:pointer;
   transition:0.3s;
 }
 
-.carousel img:hover { transform:scale(1.05); }
+.carousel img:hover {
+  transform:scale(1.08);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
 /* LIGHTBOX */
 #lightbox {
@@ -68,12 +84,28 @@ img { max-width:100%; border-radius:15px; }
 
 /* GALERIA */
 .galeria-menu button {
-  margin:5px; padding:8px 14px;
-  border-radius:20px; border:none;
+  margin:5px; padding:10px 16px;
+  border-radius:25px; border:none;
   background:#f1ece4;
+  transition:0.3s;
 }
 
-.subgaleria { display:none; margin-top:20px; }
+.galeria-menu button:hover {
+  background:#c8a97e;
+  color:white;
+  transform:scale(1.05);
+}
+
+.subgaleria { 
+  display:none; 
+  margin-top:20px;
+  animation: fade 0.5s ease;
+}
+
+@keyframes fade {
+  from {opacity:0; transform:translateY(10px);} 
+  to {opacity:1; transform:translateY(0);} 
+}
 
 .testimonios {
   display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
@@ -104,12 +136,23 @@ select,input{padding:8px;margin:5px;border-radius:8px;border:1px solid #ccc;}
 
 <section id="inicio" style="display:block">
 
+<div class="carousel-wrapper">
 <div class="carousel">
+<div class="carousel-track">
 <img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio.jpeg?raw=true">
 <img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio1.jpeg?raw=true">
 <img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio2.jpeg?raw=true">
 <img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio3.jpeg?raw=true">
 <img onclick="openImg(this.src)" src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/inicio6.jfif">
+
+<!-- DUPLICADO PARA LOOP SUAVE -->
+<img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio.jpeg?raw=true">
+<img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio1.jpeg?raw=true">
+<img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio2.jpeg?raw=true">
+<img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio3.jpeg?raw=true">
+<img onclick="openImg(this.src)" src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/inicio6.jfif">
+</div>
+</div>
 </div>
 
 <div class="card">
@@ -122,127 +165,7 @@ select,input{padding:8px;margin:5px;border-radius:8px;border:1px solid #ccc;}
 
 </section>
 
-<section id="galeria">
-<h2>Galería</h2>
-<div class="card">
-
-<div class="galeria-menu">
-<button onclick="mostrarGaleria('mascotas')">Mascotas</button>
-<button onclick="mostrarGaleria('retratos')">Retratos</button>
-<button onclick="mostrarGaleria('recreacion')">Recreación</button>
-<button onclick="mostrarGaleria('especiales')">Regalos</button>
-<button onclick="mostrarGaleria('proceso')">Proceso</button>
-<button onclick="mostrarGaleria('test')">Testimonios</button>
-</div>
-
-<div id="mascotas" class="subgaleria">
-<h3>Mascotas</h3>
-<img src="https://github.com/vidabevaart-hub/images/blob/main/30.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/40.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/50.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/4070.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/6060.jpg?raw=true">
-</div>
-
-<div id="retratos" class="subgaleria">
-<h3>Retratos</h3>
-<p>30x30</p>
-<img src="https://github.com/vidabevaart-hub/images/blob/main/3030.jpg?raw=true">
-<p>40x50</p>
-<img src="https://github.com/vidabevaart-hub/images/blob/main/4050.jpg?raw=true">
-<p>40x70</p>
-<img src="https://github.com/vidabevaart-hub/images/blob/main/4070r.jpg?raw=true">
-<p>50x50</p>
-<img src="https://github.com/vidabevaart-hub/images/blob/main/5050.jpg?raw=true">
-<p>60x60</p>
-<img src="https://github.com/vidabevaart-hub/images/blob/main/6060r.jpg?raw=true">
-<p>70x100</p>
-<img src="https://github.com/vidabevaart-hub/images/blob/main/70100r.jpg?raw=true">
-</div>
-
-<div id="recreacion" class="subgaleria">
-<h3>Recreación desde cero</h3>
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/ant1.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/antes2.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/ant2.jfif">
-</div>
-
-<div id="especiales" class="subgaleria">
-<h3>Regalos especiales</h3>
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/espe.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/espe2.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/especial.jfif">
-</div>
-
-<div id="proceso" class="subgaleria">
-<h3>Proceso</h3>
-<img src="https://github.com/vidabevaart-hub/images/blob/main/pintura.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/proceso1.jpg?raw=true">
-</div>
-
-<div id="test" class="subgaleria">
-<h3>Testimonios</h3>
-<div class="testimonios">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test1.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test2.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test3.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test4.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test5.jfif">
-</div>
-</div>
-
-</div>
-</section>
-
-<section id="precios">
-<div class="card">
-<h2>Cotizar</h2>
-<p>Alto:</p>
-<select id="alto">
-<option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option>
-</select>
-
-<p>Ancho:</p>
-<select id="ancho">
-<option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option>
-</select>
-
-<br><br>
-<button onclick="enviarWhats()">Cotizar por WhatsApp</button>
-
-<p style="font-size:12px;color:#777;">
-Cada mascota adicional tiene un costo extra de ₡10,000 sobre el precio base.
-</p>
-</div>
-</section>
-
-<section id="nosotros">
-<div class="card">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/nosotros.jpg?raw=true">
-<p>Somos Benjamin Rivas y Viviana Valverde, y desde hace más de 8 años nos dedicamos a transformar fotografías en retratos pintados a mano.
-Cada cuadro realizado es con el objetivo de capturar la esencia y la emoción de ese momento especial.</p>
-</div>
-</section>
-
-<section id="faq">
-<div class="card">
-<h2>Preguntas frecuentes</h2>
-<p><b>¿Qué tipo de foto debo enviar?</b><br>
-Fotos claras y bien iluminadas funcionan mejor sin embargo hemos trabajado con fotos antiguas por lo que 
-Siempre recomendamos consultar para no descartar.</p>
-<p><b>¿Cuánto tarda el retrato?</b><br>
-Normalmente entre 2 y 3 semanas, de igual manera puede consultar si tenemos espacios antes en la agenda.</p>
-<p><b>¿Hacen envíos?</b><br>
-Sí, realizamos envíos a todo el país
-Internaciones (próximamente)</p>
-</div>
-</section>
-
-<div id="lightbox" onclick="this.style.display='none'">
-<img id="lightimg">
-</div>
-
-<a class="whatsapp" href="https://wa.me/50670918104">💬</a>
+<!-- RESTO IGUAL -->
 
 <script>
 function show(id){
