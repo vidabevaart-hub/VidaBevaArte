@@ -9,52 +9,81 @@
 body {
   margin: 0;
   font-family: 'Georgia', serif;
-  background: url('https://www.transparenttextures.com/patterns/marble.png'), #f8f8f8;
+  background: #ffffff;
+  color: #5c4a2d;
 }
 
 header {
   text-align: center;
-  padding: 30px;
+  padding: 40px 20px;
 }
 
 header img {
-  width: 120px;
+  width: 130px;
 }
 
-h1 {
-  color: #8b6f47;
-}
+h1 { color: #8b6f47; }
 
 nav {
   display: flex;
   justify-content: center;
   gap: 10px;
-  padding: 10px;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 nav button {
-  padding: 10px 15px;
+  padding: 10px 18px;
   border: none;
+  background: transparent;
+  color: #8b6f47;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+nav button:hover {
   background: #8b6f47;
   color: white;
-  cursor: pointer;
-  border-radius: 8px;
 }
 
 section {
   display: none;
-  padding: 20px;
+  padding: 40px 20px;
+  animation: fade 0.5s ease;
 }
 
-.active {
-  display: block;
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .galeria img {
-  width: 200px;
-  margin: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  width: 100%;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+/* WhatsApp */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-decoration: none;
 }
 
 </style>
@@ -65,8 +94,7 @@ section {
 <header>
   <img src="https://raw.githubusercontent.com/vidabevaart-hub/images/main/WhatsApp%20Image%202026-04-06%20at%2012.55.39%20PM.jpeg">
   <h1>Vida Beva Arte</h1>
-  <p>Arte con intención</p>
-  <p>Convertimos tus recuerdos más especiales en retratos pintados a mano</p>
+  <p><i>Arte con intención</i></p>
 </header>
 
 <nav>
@@ -77,74 +105,65 @@ section {
   <button onclick="show('faq')">FAQ</button>
 </nav>
 
-<section id="inicio" class="active">
+<section id="inicio" style="display:block">
   <h2>Bienvenidos</h2>
-  <p>Explora nuestro arte.</p>
-
-  <h3>Redes</h3>
-  <a href="https://www.instagram.com/vidabeva.arte" target="_blank">Instagram</a><br>
-  <a href="https://www.facebook.com/share/1GLTWmyKdc/" target="_blank">Facebook</a>
+  <p>Convertimos tus recuerdos más especiales en retratos pintados a mano</p>
 </section>
 
 <section id="galeria">
   <h2>Galería</h2>
-
-  <h3>Retratos de mascotas</h3>
   <div class="galeria" id="mascotas"></div>
-
-  <h3>Retratos de personas</h3>
-  <div class="galeria" id="personas"></div>
 </section>
 
 <section id="precios">
   <h2>Precios</h2>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/precios.jpg?raw=true" style="width:100%; max-width:400px; border-radius:10px;">
   <p>Mascotas desde ₡28,000</p>
   <p>Personas desde ₡30,000</p>
 </section>
 
 <section id="nosotros">
   <h2>Nosotros</h2>
-  <p>Somos Benjamin Rivas y Viviana Valverde con más de 8 años de experiencia.</p>
+  <img src="https://github.com/vidabevaart-hub/images/blob/main/nosotros.jpg?raw=true" style="width:100%; max-width:400px; border-radius:10px;">
+  <p>Somos Benjamin Rivas y Viviana Valverde, y desde hace mas de 8 años nos dedicamos a transformar fotografías en retratos pintados a mano.
+  Cada cuadro realizado es con el objetivo de capturar la esencia y la emoción de ese momento especial.</p>
 </section>
 
 <section id="faq">
   <h2>Preguntas Frecuentes</h2>
-  <p><b>Foto:</b> Mejor iluminadas.</p>
-  <p><b>Tiempo:</b> 2 a 3 semanas.</p>
-  <p><b>Envíos:</b> A todo el país.</p>
+
+  <p><b>¿Qué tipo de foto debo enviar?</b><br>
+  Fotos claras y bien iluminadas funcionan mejor sin embargo hemos trabajado con fotos antiguas por lo que siempre recomendamos consultar para no descartar.</p>
+
+  <p><b>¿Cuánto tarda el retrato?</b><br>
+  Normalmente entre 2 y 3 semanas, de igual manera puede consultar si tenemos espacios antes en la agenda.</p>
+
+  <p><b>¿Hacen envíos?</b><br>
+  Sí, realizamos envíos a todo el país.<br>
+  Internacionales (próximamente).</p>
 </section>
+
+<a class="whatsapp" href="https://wa.me/50670918104" target="_blank">💬</a>
 
 <script>
 function show(id) {
-  document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// 👇 AQUI CONTROLAS LAS IMÁGENES
+let mascotas = ["mascota1.jpg","mascota2.jpg"];
 
-let mascotas = [
-  "mascota1.jpg",
-  "mascota2.jpg",
-  "mascota3.jpg"
-];
-
-let personas = [
-  "persona1.jpg",
-  "persona2.jpg"
-];
-
-function cargar(lista, id) {
-  let contenedor = document.getElementById(id);
-  lista.forEach(nombre => {
+function cargar() {
+  let contenedor = document.getElementById("mascotas");
+  mascotas.forEach(nombre => {
     let img = document.createElement("img");
     img.src = "images/" + nombre;
     contenedor.appendChild(img);
   });
 }
 
-cargar(mascotas, "mascotas");
-cargar(personas, "personas");
-
+cargar();
 </script>
 
 </body>
