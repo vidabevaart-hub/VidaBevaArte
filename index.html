@@ -6,120 +6,40 @@
 <title>Vida Beva Arte</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Georgia', serif;
-  background: linear-gradient(180deg,#f6e7e7,#e8f2f1,#ffffff);
-  color: #5c4a2d;
-  text-align: center;
-}
-
-header { padding: 30px; }
-header img { width:140px; background:white; padding:10px; border-radius:10px; }
-header p { margin:5px 0; font-size:18px; }
-
-nav {
-  display:flex; justify-content:center; gap:10px; padding:15px;
-  position:sticky; top:0; background:rgba(255,255,255,0.9);
-}
-
-nav button {
-  padding:10px 18px; border:none; border-radius:25px;
-  background:linear-gradient(135deg,#8b6f47,#c8a97e);
-  color:white; cursor:pointer;
-}
-
-section { display:none; padding:40px 20px; }
-
-.card {
-  background:white; border-radius:20px; padding:20px;
-  margin:20px auto; max-width:900px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
-
-img { max-width:100%; border-radius:15px; }
+body{margin:0;font-family:Georgia,serif;background:linear-gradient(180deg,#f6e7e7,#e8f2f1,#ffffff);color:#5c4a2d;text-align:center}
+header{padding:30px}
+header img{width:140px;background:white;padding:10px;border-radius:10px}
+header p{margin:5px 0;font-size:18px}
+nav{display:flex;justify-content:center;gap:10px;padding:15px;position:sticky;top:0;background:rgba(255,255,255,0.9)}
+nav button{padding:10px 18px;border:none;border-radius:25px;background:linear-gradient(135deg,#8b6f47,#c8a97e);color:white;cursor:pointer}
+section{display:none;padding:40px 20px}
+.card{background:white;border-radius:20px;padding:20px;margin:20px auto;max-width:1000px;box-shadow:0 10px 25px rgba(0,0,0,0.1)}
+img{max-width:100%;border-radius:15px}
 
 /* CARRUSEL PREMIUM */
-.carousel-wrapper {
-  display:flex;
-  justify-content:center;
-}
-
-.carousel {
-  display:flex;
-  gap:20px;
-  overflow:hidden;
-  max-width:900px;
-}
-
-.carousel-track {
-  display:flex;
-  gap:20px;
-  animation: scroll 20s linear infinite;
-}
-
-.carousel img {
-  width:250px;
-  flex:0 0 auto;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.carousel img:hover {
-  transform:scale(1.08);
-}
-
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+.carousel-wrapper{display:flex;justify-content:center}
+.carousel{overflow:hidden;max-width:1000px}
+.carousel-track{display:flex;gap:20px;animation:scroll 25s linear infinite}
+.carousel img{width:260px;cursor:pointer;transition:.3s}
+.carousel img:hover{transform:scale(1.08)}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* LIGHTBOX */
-#lightbox {
-  display:none; position:fixed; top:0; left:0;
-  width:100%; height:100%; background:rgba(0,0,0,0.8);
-  justify-content:center; align-items:center;
-}
-#lightbox img { max-width:90%; max-height:90%; }
+#lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);justify-content:center;align-items:center}
+#lightbox img{max-width:90%;max-height:90%}
 
 /* GALERIA */
-.galeria-menu button {
-  margin:5px; padding:10px 16px;
-  border-radius:25px; border:none;
-  background:#f1ece4;
-  transition:0.3s;
-}
+.galeria-menu button{margin:5px;padding:10px 16px;border-radius:25px;border:none;background:#f1ece4;transition:.3s}
+.galeria-menu button:hover{background:#c8a97e;color:white;transform:scale(1.05)}
+.subgaleria{display:none;margin-top:20px;animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
 
-.galeria-menu button:hover {
-  background:#c8a97e;
-  color:white;
-  transform:scale(1.05);
-}
-
-.subgaleria { 
-  display:none; 
-  margin-top:20px;
-  animation: fade 0.5s ease;
-}
-
-@keyframes fade {
-  from {opacity:0; transform:translateY(10px);} 
-  to {opacity:1; transform:translateY(0);} 
-}
-
-.testimonios {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:10px;
-}
-
-select,input{padding:8px;margin:5px;border-radius:8px;border:1px solid #ccc;}
-
-.whatsapp {position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%;}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%}
 </style>
 </head>
 
 <body>
-
 <header>
 <img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/logo111.jfif">
 <p><b>Arte con intención</b></p>
@@ -135,7 +55,6 @@ select,input{padding:8px;margin:5px;border-radius:8px;border:1px solid #ccc;}
 </nav>
 
 <section id="inicio" style="display:block">
-
 <div class="carousel-wrapper">
 <div class="carousel">
 <div class="carousel-track">
@@ -145,50 +64,136 @@ select,input{padding:8px;margin:5px;border-radius:8px;border:1px solid #ccc;}
 <img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio3.jpeg?raw=true">
 <img onclick="openImg(this.src)" src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/inicio6.jfif">
 
-<!-- DUPLICADO PARA LOOP SUAVE -->
-<img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio.jpeg?raw=true">
-<img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio1.jpeg?raw=true">
-<img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio2.jpeg?raw=true">
-<img onclick="openImg(this.src)" src="https://github.com/vidabevaart-hub/images/blob/main/inicio3.jpeg?raw=true">
-<img onclick="openImg(this.src)" src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/inicio6.jfif">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/inicio.jpeg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/inicio1.jpeg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/inicio2.jpeg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/inicio3.jpeg?raw=true">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/inicio6.jfif">
 </div>
 </div>
 </div>
 
 <div class="card">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/instaqr.jfif" style="max-width:150px;">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/instaqr.jfif" style="max-width:150px">
 <p>
-<a href="https://www.instagram.com/vidabeva.arte" style="color:#5c4a2d;text-decoration:none;">Instagram</a><br>
-<a href="https://www.facebook.com/share/1GLTWmyKdc/" style="color:#5c4a2d;text-decoration:none;">Facebook</a>
+<a href="https://www.instagram.com/vidabeva.arte" style="color:#5c4a2d;text-decoration:none">Instagram</a><br>
+<a href="https://www.facebook.com/share/1GLTWmyKdc/" style="color:#5c4a2d;text-decoration:none">Facebook</a>
 </p>
 </div>
-
 </section>
 
-<!-- RESTO IGUAL -->
+<section id="galeria">
+<h2>Galería</h2>
+<div class="card">
+<div class="galeria-menu">
+<button onclick="mostrarGaleria('mascotas')">Mascotas</button>
+<button onclick="mostrarGaleria('retratos')">Retratos</button>
+<button onclick="mostrarGaleria('recreacion')">Recreación</button>
+<button onclick="mostrarGaleria('especiales')">Regalos</button>
+<button onclick="mostrarGaleria('proceso')">Proceso</button>
+<button onclick="mostrarGaleria('test')">Testimonios</button>
+</div>
+
+<div id="mascotas" class="subgaleria">
+<h3>Mascotas</h3>
+<div class="grid">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/30.jpg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/40.jpg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/50.jpg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/4070.jpg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/6060.jpg?raw=true">
+</div>
+</div>
+
+<div id="retratos" class="subgaleria">
+<h3>Retratos</h3>
+<div class="grid">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/3030.jpg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/4050.jpg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/4070r.jpg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/5050.jpg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/6060r.jpg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/70100r.jpg?raw=true">
+</div>
+</div>
+
+<div id="recreacion" class="subgaleria">
+<h3>Recreación desde cero</h3>
+<div class="grid">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/ant1.jfif">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/antes2.jfif">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/ant2.jfif">
+</div>
+</div>
+
+<div id="especiales" class="subgaleria">
+<h3>Regalos especiales</h3>
+<div class="grid">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/espe.jfif">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/espe2.jfif">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/especial.jfif">
+</div>
+</div>
+
+<div id="proceso" class="subgaleria">
+<h3>Proceso de pintura</h3>
+<div class="grid">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/pintura.jpg?raw=true">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/proceso1.jpg?raw=true">
+</div>
+</div>
+
+<div id="test" class="subgaleria">
+<h3>Testimonios</h3>
+<div class="grid">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test1.jfif">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test2.jfif">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test3.jfif">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test4.jfif">
+<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test5.jfif">
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="precios">
+<div class="card">
+<h2>Cotizar</h2>
+<p>Alto:</p>
+<select id="alto"><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option></select>
+<p>Ancho:</p>
+<select id="ancho"><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option></select>
+<br><br>
+<button onclick="enviarWhats()">Cotizar por WhatsApp</button>
+<p style="font-size:12px;color:#777">Cada mascota adicional tiene un costo extra de ₡10,000 sobre el precio base.</p>
+</div>
+</section>
+
+<section id="nosotros">
+<div class="card">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/nosotros.jpg?raw=true">
+<p>Somos Benjamin Rivas y Viviana Valverde, y desde hace mas de 8 años nos dedicamos a transformar fotografías en retratos pintados a mano. Cada cuadro realizado es con el objetivo de capturar la esencia y la emoción de ese momento especial.</p>
+</div>
+</section>
+
+<section id="faq">
+<div class="card">
+<h2>Preguntas frecuentes</h2>
+<p><b>¿Qué tipo de foto debo enviar?</b><br>Fotos claras y bien iluminadas funcionan mejor sin embargo hemos trabajado con fotos antiguas por lo que siempre recomendamos consultar para no descartar.</p>
+<p><b>¿Cuánto tarda el retrato?</b><br>Normalmente entre 2 y 3 semanas, de igual manera puede consultar si tenemos espacios antes en la agenda</p>
+<p><b>¿Hacen envíos?</b><br>Sí, realizamos envíos a todo el pais. Internacionales (próximamente)</p>
+</div>
+</section>
+
+<div id="lightbox" onclick="this.style.display='none'"><img id="lightimg"></div>
+<a class="whatsapp" href="https://wa.me/50670918104">💬</a>
 
 <script>
-function show(id){
- document.querySelectorAll('section').forEach(s=>s.style.display='none');
- document.getElementById(id).style.display='block';
-}
-
-function mostrarGaleria(id){
- document.querySelectorAll('.subgaleria').forEach(g=>g.style.display='none');
- document.getElementById(id).style.display='block';
-}
-
-function enviarWhats(){
- let alto=document.getElementById('alto').value;
- let ancho=document.getElementById('ancho').value;
- let url=`https://wa.me/50670918104?text=Hola quiero cotizar un retrato de ${alto}x${ancho}`;
- window.open(url);
-}
-
-function openImg(src){
- document.getElementById('lightbox').style.display='flex';
- document.getElementById('lightimg').src=src;
-}
+function show(id){document.querySelectorAll('section').forEach(s=>s.style.display='none');document.getElementById(id).style.display='block'}
+function mostrarGaleria(id){document.querySelectorAll('.subgaleria').forEach(g=>g.style.display='none');document.getElementById(id).style.display='block'}
+function enviarWhats(){let alto=document.getElementById('alto').value;let ancho=document.getElementById('ancho').value;window.open(`https://wa.me/50670918104?text=Hola quiero cotizar un retrato de ${alto}x${ancho}`)}
+function openImg(src){document.getElementById('lightbox').style.display='flex';document.getElementById('lightimg').src=src}
 </script>
 
 </body>
