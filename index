@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vida Beva Arte</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: url('https://www.transparenttextures.com/patterns/marble.png'), #f8f8f8;
+}
+
+header {
+  text-align: center;
+  padding: 30px;
+}
+
+header img {
+  width: 120px;
+}
+
+h1 {
+  color: #8b6f47;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+nav button {
+  padding: 10px 15px;
+  border: none;
+  background: #8b6f47;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+section {
+  display: none;
+  padding: 20px;
+}
+
+.active {
+  display: block;
+}
+
+.galeria img {
+  width: 200px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="https://raw.githubusercontent.com/vidabevaart-hub/images/main/WhatsApp%20Image%202026-04-06%20at%2012.55.39%20PM.jpeg">
+  <h1>Vida Beva Arte</h1>
+  <p>Arte con intención</p>
+  <p>Convertimos tus recuerdos más especiales en retratos pintados a mano</p>
+</header>
+
+<nav>
+  <button onclick="show('inicio')">Inicio</button>
+  <button onclick="show('galeria')">Galería</button>
+  <button onclick="show('precios')">Precios</button>
+  <button onclick="show('nosotros')">Nosotros</button>
+  <button onclick="show('faq')">FAQ</button>
+</nav>
+
+<section id="inicio" class="active">
+  <h2>Bienvenidos</h2>
+  <p>Explora nuestro arte.</p>
+
+  <h3>Redes</h3>
+  <a href="https://www.instagram.com/vidabeva.arte" target="_blank">Instagram</a><br>
+  <a href="https://www.facebook.com/share/1GLTWmyKdc/" target="_blank">Facebook</a>
+</section>
+
+<section id="galeria">
+  <h2>Galería</h2>
+
+  <h3>Retratos de mascotas</h3>
+  <div class="galeria" id="mascotas"></div>
+
+  <h3>Retratos de personas</h3>
+  <div class="galeria" id="personas"></div>
+</section>
+
+<section id="precios">
+  <h2>Precios</h2>
+  <p>Mascotas desde ₡28,000</p>
+  <p>Personas desde ₡30,000</p>
+</section>
+
+<section id="nosotros">
+  <h2>Nosotros</h2>
+  <p>Somos Benjamin Rivas y Viviana Valverde con más de 8 años de experiencia.</p>
+</section>
+
+<section id="faq">
+  <h2>Preguntas Frecuentes</h2>
+  <p><b>Foto:</b> Mejor iluminadas.</p>
+  <p><b>Tiempo:</b> 2 a 3 semanas.</p>
+  <p><b>Envíos:</b> A todo el país.</p>
+</section>
+
+<script>
+function show(id) {
+  document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// 👇 AQUI CONTROLAS LAS IMÁGENES
+
+let mascotas = [
+  "mascota1.jpg",
+  "mascota2.jpg",
+  "mascota3.jpg"
+];
+
+let personas = [
+  "persona1.jpg",
+  "persona2.jpg"
+];
+
+function cargar(lista, id) {
+  let contenedor = document.getElementById(id);
+  lista.forEach(nombre => {
+    let img = document.createElement("img");
+    img.src = "images/" + nombre;
+    contenedor.appendChild(img);
+  });
+}
+
+cargar(mascotas, "mascotas");
+cargar(personas, "personas");
+
+</script>
+
+</body>
+</html>
