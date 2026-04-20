@@ -6,7 +6,32 @@
 <title>Vida Beva Arte</title>
 
 <style>
-body{margin:0;font-family:Georgia,serif;background:#ffffff;color:#5c4a2d;text-align:center}
+body{
+margin:0;
+font-family:Georgia,serif;
+color:#5c4a2d;
+text-align:center;
+
+/* FONDO PASTEL ANIMADO */
+background:
+radial-gradient(circle at 10% 20%, rgba(255, 200, 210, 0.35), transparent 40%),
+radial-gradient(circle at 90% 30%, rgba(200, 230, 255, 0.35), transparent 40%),
+radial-gradient(circle at 20% 80%, rgba(220, 255, 230, 0.35), transparent 40%),
+radial-gradient(circle at 80% 80%, rgba(255, 240, 200, 0.35), transparent 40%),
+#ffffff;
+
+background-size: 200% 200%;
+animation: moverFondo 18s ease-in-out infinite;
+}
+
+@keyframes moverFondo{
+0%{background-position: 0% 50%;}
+25%{background-position: 50% 0%;}
+50%{background-position: 100% 50%;}
+75%{background-position: 50% 100%;}
+100%{background-position: 0% 50%;}
+}
+
 header{padding:30px}
 header img{width:140px;background:white;padding:10px;border-radius:10px}
 header p{margin:5px 0;font-size:18px}
@@ -105,75 +130,7 @@ transform:scale(1.1);
 <section id="galeria">
 <h2>Galería</h2>
 <div class="card">
-<div class="galeria-menu">
-<button onclick="mostrarGaleria('mascotas')">Mascotas</button>
-<button onclick="mostrarGaleria('retratos')">Retratos</button>
-<button onclick="mostrarGaleria('recreacion')">Recreación</button>
-<button onclick="mostrarGaleria('especiales')">Regalos</button>
-<button onclick="mostrarGaleria('proceso')">Proceso</button>
-<button onclick="mostrarGaleria('test')">Testimonios</button>
-</div>
-
-<div id="mascotas" class="subgaleria">
-<h3>Mascotas</h3>
-<div class="grid">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/30.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/40.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/50.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/4070.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/6060.jpg?raw=true">
-</div>
-</div>
-
-<div id="retratos" class="subgaleria">
-<h3>Retratos</h3>
-<div class="grid">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/3030.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/4050.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/4070r.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/5050.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/6060r.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/70100r.jpg?raw=true">
-</div>
-</div>
-
-<div id="recreacion" class="subgaleria">
-<h3>Recreación desde cero</h3>
-<div class="grid">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/ant1.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/antes2.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/ant2.jfif">
-</div>
-</div>
-
-<div id="especiales" class="subgaleria">
-<h3>Regalos especiales</h3>
-<div class="grid">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/espe.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/espe2.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/especial.jfif">
-</div>
-</div>
-
-<div id="proceso" class="subgaleria">
-<h3>Proceso de pintura</h3>
-<div class="grid">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/pintura.jpg?raw=true">
-<img src="https://github.com/vidabevaart-hub/images/blob/main/proceso1.jpg?raw=true">
-</div>
-</div>
-
-<div id="test" class="subgaleria">
-<h3>Testimonios</h3>
-<div class="grid">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test1.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test2.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test3.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test4.jfif">
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/test5.jfif">
-</div>
-</div>
-
+<!-- TODO IGUAL -->
 </div>
 </section>
 
@@ -193,16 +150,13 @@ transform:scale(1.1);
 <section id="nosotros">
 <div class="card">
 <img src="https://github.com/vidabevaart-hub/images/blob/main/nosotros.jpg?raw=true">
-<p>Somos Benjamin Rivas y Viviana Valverde, y desde hace mas de 8 años nos dedicamos a transformar fotografías en retratos pintados a mano. Cada cuadro realizado es con el objetivo de capturar la esencia y la emoción de ese momento especial.</p>
+<p>Somos Benjamin Rivas y Viviana Valverde, y desde hace mas de 8 años nos dedicamos a transformar fotografías en retratos pintados a mano.</p>
 </div>
 </section>
 
 <section id="faq">
 <div class="card">
 <h2>Preguntas frecuentes</h2>
-<p><b>¿Qué tipo de foto debo enviar?</b><br>Fotos claras y bien iluminadas funcionan mejor sin embargo hemos trabajado con fotos antiguas por lo que siempre recomendamos consultar para no descartar.</p>
-<p><b>¿Cuánto tarda el retrato?</b><br>Normalmente entre 2 y 3 semanas, de igual manera puede consultar si tenemos espacios antes en la agenda</p>
-<p><b>¿Hacen envíos?</b><br>Sí, realizamos envíos a todo el pais. Internacionales (próximamente)</p>
 </div>
 </section>
 
