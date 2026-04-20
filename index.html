@@ -6,7 +6,7 @@
 <title>Vida Beva Arte</title>
 
 <style>
-body{margin:0;font-family:Georgia,serif;background:linear-gradient(180deg,#f6e7e7,#e8f2f1,#ffffff);color:#5c4a2d;text-align:center}
+body{margin:0;font-family:Georgia,serif;background:#ffffff;color:#5c4a2d;text-align:center}
 header{padding:30px}
 header img{width:140px;background:white;padding:10px;border-radius:10px}
 header p{margin:5px 0;font-size:18px}
@@ -35,13 +35,33 @@ img{max-width:100%;border-radius:15px}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
 
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%}
+/* WHATSAPP MEJORADO */
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+width:70px;
+height:70px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+transition:.3s;
+}
+.whatsapp img{
+width:38px;
+}
+.whatsapp:hover{
+transform:scale(1.1);
+}
 </style>
 </head>
 
 <body>
 <header>
-<img src="https://raw.githubusercontent.com/vidabevaart-hub/images/refs/heads/main/logo111.jfif">
+<img src="https://github.com/vidabevaart-hub/images/blob/main/logosss.JPG?raw=true" style="width:220px">
 <p><b>Arte con intención</b></p>
 <p>Convertimos tus recuerdos más especiales en retratos pintados a mano</p>
 </header>
@@ -187,7 +207,10 @@ img{max-width:100%;border-radius:15px}
 </section>
 
 <div id="lightbox" onclick="this.style.display='none'"><img id="lightimg"></div>
-<a class="whatsapp" href="https://wa.me/50670918104">💬</a>
+
+<a class="whatsapp" href="https://wa.me/50670918104">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
 
 <script>
 function show(id){document.querySelectorAll('section').forEach(s=>s.style.display='none');document.getElementById(id).style.display='block'}
